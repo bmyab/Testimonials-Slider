@@ -1,0 +1,224 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;500;700&display=swap');
+:root{
+  --Dark-Blue: hsl(240, 38%, 20%);
+  --Grayish-Blue: hsl(240, 18%, 77%);
+}
+html {
+  box-sizing: border-box;
+  font-size: 62.5%;
+}
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+  margin: 0;
+  padding: 0;
+}
+body{
+  font-size: 3.2rem;
+  font-family: 'Inter', sans-serif;
+  display: grid;
+  place-content: center;
+  height: 100vh;
+  width: 100vw;
+  background-image: url('../images/pattern-curve.svg');
+  background-repeat: no-repeat;
+  background-position: 60% 105% ;
+}
+
+.slider{
+  width: calc(100% - 10%);
+  margin-inline: auto;
+  background-image: url('../images/pattern-bg.svg');
+  background-repeat: no-repeat;
+  background-size: contain;
+
+  display: flex;
+  flex-direction: column;
+  gap: 10rem;
+}
+.slider__img{
+  width: calc(100% - 22%);
+  margin-inline: auto;
+  position: relative;
+}
+.slider__img .img__person{
+  width: 100%;
+  border-radius: 0.8rem;
+  margin-top: 3.1rem;
+  
+  box-shadow: 0px 19px 32px 7px rgba(0,0,0,0.33);
+  -webkit-box-shadow: 0px 19px 32px 7px rgba(0,0,0,0.33);
+  -moz-box-shadow: 0px 19px 32px 7px rgba(0,0,0,0.33);
+
+  display: none;
+  
+}
+.slider__img .img__person.active{
+  display: block;
+}
+.slider__img .arrows{
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 80px;
+  height: 40px;
+
+  border-radius: 2rem;
+  background-color: white;
+
+  position: absolute;
+  bottom: -10px;
+  left: 35%;
+
+  
+}
+.slider__img .cta{
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+  transition: all 0.5s ease-in;
+  width: 100%;
+  height: 100%;
+}
+.slider__img .cta:hover{
+  opacity: 0.4;
+}
+.slider__img .cta img{
+  width: 10px;
+}
+
+.slider__texts{
+  font-size: 1.9rem;
+  font-weight: 300;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+
+  color: var(--Dark-Blue);
+
+  position: relative;
+  display: none;
+}
+.slider__texts.active{
+  display: flex;
+}
+.slider__texts::before{
+  content: '';
+  width: 80px;
+  height: 50px;
+  background-image: url('../images/pattern-quotes.svg');
+  background-size: contain;
+  background-repeat: no-repeat;
+  
+  position: absolute;
+  top: -5px;
+  left: 50%;
+  transform: translate(-50% ,-50%);
+}
+.slider__texts .sub{
+  font-weight: 700;
+  font-size: 1.6rem;
+}
+.slider__texts .paragraph-m{
+  color: var(--Grayish-Blue);
+  font-size: 1.6rem;
+  font-weight: 500;
+}
+
+@media (min-width:600px){
+  body{
+   background-position: 0% 105% ;
+  }
+  .slider{
+    width: calc(100% - 30%);
+
+  }
+  .slider__img .img__person{
+    margin-top: 5rem;
+  }
+  .slider__texts::before{
+    height: 35%;
+  }
+}
+
+@media (min-width:820px){
+  body{
+    height: 100vh;
+    background-position: 0% 100% ;
+
+  }
+  .sliders{
+    width: calc(100% - 10%);
+    margin-inline: auto;
+  }
+  .slider{
+    width: 100%;
+    height: 100%;
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    column-gap: 0;
+    background-image: none;
+  }
+  .slider__texts::before{
+    left: 30%;
+  }
+  .slider__img{
+    grid-column: 2/3;
+    grid-row: 1 / 3;
+    background-image: url('../images/pattern-bg.svg');
+    background-size: contain;
+    background-repeat: no-repeat;
+    width: 90%;
+    height: 110%;
+    
+  }
+  .slider__img .arrows{
+    left: 18%;
+    bottom: 40px;
+
+  }
+  .slider__img .img__person{
+    margin-top: 5.5rem;
+    margin-inline: 4rem;
+    width: 78%;
+  }
+  .slider__texts{
+    grid-column: 1 / 2;
+    grid-row: 1 / 3;
+    max-width: 40rem;
+    align-self: center;
+    text-align: left;
+  }
+  .slider__texts .paragraph{
+    line-height: 3rem;
+    font-weight: 400;
+  }
+  .slider__texts .texts__info{
+    display: inline-flex;
+    gap: 2rem;
+  }
+}
+
+@media (min-width:1200px){
+
+  .slider{
+    grid-template-columns: repeat(2,max-content);
+
+  }
+  .slider__img{
+    padding-block-end: 4rem;
+  }
+  .slider__img .arrows{
+    left: 18%;
+    bottom: 80px;
+
+  }
+
+  .slider__texts .paragraph{
+    font-size: 2.6rem;
+    width: 520px;
+    z-index: 100;
+  }
+}
